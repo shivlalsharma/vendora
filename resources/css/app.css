@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans:
+        "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #111827;
+}
+
+.hero-banner-bg {
+    background: linear-gradient(108deg, #edf7f2 0%, #faf6ee 55%, #f4ede0 100%);
+}

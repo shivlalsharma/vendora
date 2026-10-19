@@ -23,7 +23,7 @@
 
         <!-- Header Right Menu -->
         <div class="flex items-center gap-5 text-sm font-semibold text-gray-700">
-            <a href="#login" class="flex items-center gap-1.5 hover:text-[#00875A] transition">
+            <a href="{{route('login')}}" class="flex items-center gap-1.5 hover:text-[#00875A] transition">
                 <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -32,7 +32,7 @@
                 <span>Login</span>
             </a>
             <span class="text-gray-300">|</span>
-            <a href="#register" class="flex items-center gap-1.5 hover:text-[#00875A] transition">
+            <a href="{{route('register')}}" class="flex items-center gap-1.5 hover:text-[#00875A] transition">
                 <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"

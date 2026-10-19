@@ -1,5 +1,5 @@
 @php
-    $isPriority = $slide['priority'] ?? false;
+$isPriority = $slide['priority'] ?? false;
 @endphp
 
 <div
@@ -31,17 +31,15 @@
             </span>
 
             @if ($isPriority)
-                <h1
-                    class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0B1527] leading-[1.12] tracking-tight">
-                    {{ $slide['heading_line_1'] }} <br>
-                    <span class="text-[#00875A]">{{ $slide['heading_line_2'] }}</span>
-                </h1>
+            <h1 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0B1527] leading-[1.12] tracking-tight">
+                {{ $slide['heading_line_1'] }} <br>
+                <span class="text-[#00875A]">{{ $slide['heading_line_2'] }}</span>
+            </h1>
             @else
-                <h2
-                    class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0B1527] leading-[1.12] tracking-tight">
-                    {{ $slide['heading_line_1'] }} <br>
-                    <span class="text-[#00875A]">{{ $slide['heading_line_2'] }}</span>
-                </h2>
+            <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0B1527] leading-[1.12] tracking-tight">
+                {{ $slide['heading_line_1'] }} <br>
+                <span class="text-[#00875A]">{{ $slide['heading_line_2'] }}</span>
+            </h2>
             @endif
 
             <p class="text-gray-600 text-xs sm:text-sm lg:text-[15px] leading-relaxed max-w-md font-medium">
@@ -65,13 +63,13 @@
             <!-- Features -->
             <div class="flex flex-wrap items-center gap-6 sm:gap-7 pt-4">
                 @foreach ($slide['features'] as $feature)
-                    <div class="flex items-center gap-2">
-                        <div class="text-[#00875A] shrink-0">
-                            <x-home.hero.feature-icon :icon="$feature['icon']" />
-                        </div>
-                        <span
-                            class="text-[11px] font-semibold text-gray-700 leading-tight">{{ $feature['line_1'] }}<br>{{ $feature['line_2'] }}</span>
+                <div class="flex items-center gap-2">
+                    <div class="text-[#00875A] shrink-0">
+                        <x-home.feature-icon :icon="$feature['icon']" />
                     </div>
+                    <span
+                        class="text-[11px] font-semibold text-gray-700 leading-tight">{{ $feature['line_1'] }}<br>{{ $feature['line_2'] }}</span>
+                </div>
                 @endforeach
             </div>
         </div>

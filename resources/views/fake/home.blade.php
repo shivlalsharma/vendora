@@ -1,163 +1,163 @@
 @php
-    $categories = [
-        [
-            'name' => 'Electronics',
-            'icon' => 'laptop',
-            'img' => 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&auto=format&fit=crop&q=80',
-        ],
-        [
-            'name' => 'Fashion',
-            'icon' => 'dress',
-            'img' => 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=300&auto=format&fit=crop&q=80',
-        ],
-        [
-            'name' => 'Home & Living',
-            'icon' => 'couch',
-            'img' => 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300&auto=format&fit=crop&q=80',
-        ],
-        [
-            'name' => 'Beauty & Health',
-            'icon' => 'sparkles',
-            'img' => 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&auto=format&fit=crop&q=80',
-        ],
-        [
-            'name' => 'Sports & Outdoors',
-            'icon' => 'sneakers',
-            'img' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&auto=format&fit=crop&q=80',
-        ],
-        [
-            'name' => 'Toys & Games',
-            'icon' => 'teddy',
-            'img' => 'https://images.unsplash.com/photo-1559715745-e1b33a271c8f?w=300&auto=format&fit=crop&q=80',
-        ],
-        [
-            'name' => 'Books & Stationery',
-            'icon' => 'book',
-            'img' => 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&auto=format&fit=crop&q=80',
-        ],
-        [
-            'name' => 'Automotive',
-            'icon' => 'car',
-            'img' => 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300&auto=format&fit=crop&q=80',
-        ],
-    ];
+$categories = [
+[
+'name' => 'Electronics',
+'icon' => 'laptop',
+'img' => 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&auto=format&fit=crop&q=80',
+],
+[
+'name' => 'Fashion',
+'icon' => 'dress',
+'img' => 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=300&auto=format&fit=crop&q=80',
+],
+[
+'name' => 'Home & Living',
+'icon' => 'couch',
+'img' => 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300&auto=format&fit=crop&q=80',
+],
+[
+'name' => 'Beauty & Health',
+'icon' => 'sparkles',
+'img' => 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&auto=format&fit=crop&q=80',
+],
+[
+'name' => 'Sports & Outdoors',
+'icon' => 'sneakers',
+'img' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&auto=format&fit=crop&q=80',
+],
+[
+'name' => 'Toys & Games',
+'icon' => 'teddy',
+'img' => 'https://images.unsplash.com/photo-1559715745-e1b33a271c8f?w=300&auto=format&fit=crop&q=80',
+],
+[
+'name' => 'Books & Stationery',
+'icon' => 'book',
+'img' => 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&auto=format&fit=crop&q=80',
+],
+[
+'name' => 'Automotive',
+'icon' => 'car',
+'img' => 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300&auto=format&fit=crop&q=80',
+],
+];
 
-    $products = [
-        [
-            'title' => 'Wireless Headphones',
-            'subtitle' => 'Premium Sound Quality',
-            'price' => '59.99',
-            'old_price' => '89.99',
-            'rating' => '4.5',
-            'reviews' => '120',
-            'badge' => 'Best Seller',
-            'badge_color' => 'bg-[#00875A] text-white',
-            'image' => 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&auto=format&fit=crop&q=80',
-        ],
-        [
-            'title' => 'Smart Watch',
-            'subtitle' => 'Fitness & Health Tracker',
-            'price' => '79.99',
-            'old_price' => '99.99',
-            'rating' => '4.3',
-            'reviews' => '89',
-            'badge' => '-20%',
-            'badge_color' => 'bg-[#FF4D4D] text-white',
-            'image' => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&auto=format&fit=crop&q=80',
-        ],
-        [
-            'title' => 'Running Shoes',
-            'subtitle' => 'Comfortable & Stylish',
-            'price' => '49.99',
-            'old_price' => '69.99',
-            'rating' => '4.6',
-            'reviews' => '200',
-            'badge' => null,
-            'image' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=80',
-        ],
-        [
-            'title' => 'Travel Backpack',
-            'subtitle' => 'Water Resistant',
-            'price' => '34.99',
-            'old_price' => '49.99',
-            'rating' => '4.7',
-            'reviews' => '156',
-            'badge' => null,
-            'image' => 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&auto=format&fit=crop&q=80',
-        ],
-        [
-            'title' => 'Air Fryer',
-            'subtitle' => 'Healthy Cooking Made Easy',
-            'price' => '84.99',
-            'old_price' => '99.99',
-            'rating' => '4.4',
-            'reviews' => '98',
-            'badge' => '-15%',
-            'badge_color' => 'bg-[#FF4D4D] text-white',
-            'image' => 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=400&auto=format&fit=crop&q=80',
-        ],
-        [
-            'title' => 'Skincare Set',
-            'subtitle' => 'Natural & Organic',
-            'price' => '29.99',
-            'old_price' => '39.99',
-            'rating' => '4.8',
-            'reviews' => '143',
-            'badge' => null,
-            'image' => 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&auto=format&fit=crop&q=80',
-        ],
-    ];
+$products = [
+[
+'title' => 'Wireless Headphones',
+'subtitle' => 'Premium Sound Quality',
+'price' => '59.99',
+'old_price' => '89.99',
+'rating' => '4.5',
+'reviews' => '120',
+'badge' => 'Best Seller',
+'badge_color' => 'bg-[#00875A] text-white',
+'image' => 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&auto=format&fit=crop&q=80',
+],
+[
+'title' => 'Smart Watch',
+'subtitle' => 'Fitness & Health Tracker',
+'price' => '79.99',
+'old_price' => '99.99',
+'rating' => '4.3',
+'reviews' => '89',
+'badge' => '-20%',
+'badge_color' => 'bg-[#FF4D4D] text-white',
+'image' => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&auto=format&fit=crop&q=80',
+],
+[
+'title' => 'Running Shoes',
+'subtitle' => 'Comfortable & Stylish',
+'price' => '49.99',
+'old_price' => '69.99',
+'rating' => '4.6',
+'reviews' => '200',
+'badge' => null,
+'image' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=80',
+],
+[
+'title' => 'Travel Backpack',
+'subtitle' => 'Water Resistant',
+'price' => '34.99',
+'old_price' => '49.99',
+'rating' => '4.7',
+'reviews' => '156',
+'badge' => null,
+'image' => 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&auto=format&fit=crop&q=80',
+],
+[
+'title' => 'Air Fryer',
+'subtitle' => 'Healthy Cooking Made Easy',
+'price' => '84.99',
+'old_price' => '99.99',
+'rating' => '4.4',
+'reviews' => '98',
+'badge' => '-15%',
+'badge_color' => 'bg-[#FF4D4D] text-white',
+'image' => 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=400&auto=format&fit=crop&q=80',
+],
+[
+'title' => 'Skincare Set',
+'subtitle' => 'Natural & Organic',
+'price' => '29.99',
+'old_price' => '39.99',
+'rating' => '4.8',
+'reviews' => '143',
+'badge' => null,
+'image' => 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&auto=format&fit=crop&q=80',
+],
+];
 
-    $vendors = [
-        [
-            'name' => 'TechWorld',
-            'category' => 'Electronics & Gadgets',
-            'initials' => 'TW',
-            'badge_bg' => 'bg-[#111827] text-white',
-            'rating' => '4.8',
-            'reviews' => '2.1k',
-            'products_count' => '120 Products',
-        ],
-        [
-            'name' => 'FashionHub',
-            'category' => 'Fashion & Lifestyle',
-            'initials' => 'FH',
-            'badge_bg' => 'bg-[#BE185D] text-white',
-            'rating' => '4.6',
-            'reviews' => '1.8k',
-            'products_count' => '98 Products',
-        ],
-        [
-            'name' => 'HomeEssentials',
-            'category' => 'Home & Living',
-            'initials' => null,
-            'icon' => 'home',
-            'badge_bg' => 'bg-[#064E3B] text-white',
-            'rating' => '4.7',
-            'reviews' => '1.5k',
-            'products_count' => '76 Products',
-        ],
-        [
-            'name' => 'BeautyStore',
-            'category' => 'Beauty & Personal Care',
-            'initials' => null,
-            'icon' => 'flower',
-            'badge_bg' => 'bg-[#F43F5E] text-white',
-            'rating' => '4.5',
-            'reviews' => '1.2k',
-            'products_count' => '65 Products',
-        ],
-        [
-            'name' => 'SportsZone',
-            'category' => 'Sports & Outdoor',
-            'initials' => null,
-            'icon' => 'mountain',
-            'badge_bg' => 'bg-[#0F172A] text-white',
-            'rating' => '4.6',
-            'reviews' => '980',
-            'products_count' => '54 Products',
-        ],
-    ];
+$vendors = [
+[
+'name' => 'TechWorld',
+'category' => 'Electronics & Gadgets',
+'initials' => 'TW',
+'badge_bg' => 'bg-[#111827] text-white',
+'rating' => '4.8',
+'reviews' => '2.1k',
+'products_count' => '120 Products',
+],
+[
+'name' => 'FashionHub',
+'category' => 'Fashion & Lifestyle',
+'initials' => 'FH',
+'badge_bg' => 'bg-[#BE185D] text-white',
+'rating' => '4.6',
+'reviews' => '1.8k',
+'products_count' => '98 Products',
+],
+[
+'name' => 'HomeEssentials',
+'category' => 'Home & Living',
+'initials' => null,
+'icon' => 'home',
+'badge_bg' => 'bg-[#064E3B] text-white',
+'rating' => '4.7',
+'reviews' => '1.5k',
+'products_count' => '76 Products',
+],
+[
+'name' => 'BeautyStore',
+'category' => 'Beauty & Personal Care',
+'initials' => null,
+'icon' => 'flower',
+'badge_bg' => 'bg-[#F43F5E] text-white',
+'rating' => '4.5',
+'reviews' => '1.2k',
+'products_count' => '65 Products',
+],
+[
+'name' => 'SportsZone',
+'category' => 'Sports & Outdoor',
+'initials' => null,
+'icon' => 'mountain',
+'badge_bg' => 'bg-[#0F172A] text-white',
+'rating' => '4.6',
+'reviews' => '980',
+'products_count' => '54 Products',
+],
+];
 @endphp
 
 <!DOCTYPE html>
@@ -192,8 +192,7 @@
                         class="w-full pl-5 pr-14 py-2.5 rounded-full border border-gray-200 focus:outline-none focus:border-[#00875A] text-sm text-gray-700 placeholder-gray-400 shadow-sm">
                     <button type="submit"
                         class="absolute right-1.5 p-2 bg-[#00875A] hover:bg-[#00744D] text-white rounded-full transition-colors flex items-center justify-center">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2"
-                            viewBox="0 0 24 24">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
                         </svg>
@@ -677,8 +676,7 @@
                 <a href="#all-categories"
                     class="text-sm font-semibold text-[#00875A] hover:underline flex items-center gap-1">
                     <span>View All</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2"
-                        viewBox="0 0 24 24">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                 </a>
@@ -709,8 +707,7 @@
                 <a href="#all-products"
                     class="text-sm font-semibold text-[#00875A] hover:underline flex items-center gap-1">
                     <span>View All</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2"
-                        viewBox="0 0 24 24">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                 </a>
@@ -843,8 +840,7 @@
                 <a href="#all-vendors"
                     class="text-sm font-semibold text-[#00875A] hover:underline flex items-center gap-1">
                     <span>View All</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2"
-                        viewBox="0 0 24 24">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                 </a>
@@ -862,20 +858,17 @@
                         <?php if (!empty($vendor['initials'])): ?>
                         <span><?= $vendor['initials'] ?></span>
                         <?php elseif ($vendor['icon'] === 'home'): ?>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                         </svg>
                         <?php elseif ($vendor['icon'] === 'flower'): ?>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 2a4 4 0 00-4 4v2a4 4 0 008 0V6a4 4 0 00-4-4zM6 10a4 4 0 00-4 4v2a4 4 0 008 0v-2a4 4 0 00-4-4zm12 0a4 4 0 00-4 4v2a4 4 0 008 0v-2a4 4 0 00-4-4z" />
                         </svg>
                         <?php else: ?>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                         <?php endif; ?>
@@ -916,8 +909,7 @@
                 <!-- Brand Info -->
                 <div class="lg:col-span-4 space-y-4">
                     <a href="#" class="flex items-center gap-2">
-                        <svg class="h-8 w-auto" viewBox="0 0 460 380" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
+                        <svg class="h-8 w-auto" viewBox="0 0 460 380" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M140 120 C140 60, 220 60, 220 120" stroke="#00875A" stroke-width="26"
                                 stroke-linecap="round" fill="none" />
                             <rect x="70" y="110" width="220" height="230" rx="42" fill="#00875A" />
@@ -1059,177 +1051,177 @@
 
     <!-- ==================== TRUE INFINITE LOOP CAROUSEL & SWIPER ==================== -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const track = document.getElementById("sliderTrack");
-            const slider = document.getElementById("heroSlider");
-            const dots = slider.querySelectorAll(".hero-dot");
-            const dotIndicators = slider.querySelectorAll(".dot-indicator");
-            const originalSlides = Array.from(track.querySelectorAll(".hero-slide"));
-            const totalOriginalSlides = originalSlides.length;
+    document.addEventListener("DOMContentLoaded", function() {
+        const track = document.getElementById("sliderTrack");
+        const slider = document.getElementById("heroSlider");
+        const dots = slider.querySelectorAll(".hero-dot");
+        const dotIndicators = slider.querySelectorAll(".dot-indicator");
+        const originalSlides = Array.from(track.querySelectorAll(".hero-slide"));
+        const totalOriginalSlides = originalSlides.length;
 
-            if (totalOriginalSlides === 0) return;
+        if (totalOriginalSlides === 0) return;
 
-            // 1. Create Infinite Clones (First to end, Last to beginning)
-            const firstClone = originalSlides[0].cloneNode(true);
-            const lastClone = originalSlides[totalOriginalSlides - 1].cloneNode(true);
-            firstClone.classList.add("clone");
-            lastClone.classList.add("clone");
+        // 1. Create Infinite Clones (First to end, Last to beginning)
+        const firstClone = originalSlides[0].cloneNode(true);
+        const lastClone = originalSlides[totalOriginalSlides - 1].cloneNode(true);
+        firstClone.classList.add("clone");
+        lastClone.classList.add("clone");
 
-            track.appendChild(firstClone);
-            track.insertBefore(lastClone, originalSlides[0]);
+        track.appendChild(firstClone);
+        track.insertBefore(lastClone, originalSlides[0]);
 
-            // We start on real slide 1 (Index 1)
-            let currentIndex = 1;
-            let isTransitioning = false;
-            let autoPlayTimer = null;
-            const slideDuration = 700; // ms
+        // We start on real slide 1 (Index 1)
+        let currentIndex = 1;
+        let isTransitioning = false;
+        let autoPlayTimer = null;
+        const slideDuration = 700; // ms
 
-            // Position track initially without animation
-            function setTrackPosition(animate = true) {
-                if (animate) {
-                    track.style.transition = `transform ${slideDuration}ms cubic-bezier(0.25, 1, 0.5, 1)`;
+        // Position track initially without animation
+        function setTrackPosition(animate = true) {
+            if (animate) {
+                track.style.transition = `transform ${slideDuration}ms cubic-bezier(0.25, 1, 0.5, 1)`;
+            } else {
+                track.style.transition = "none";
+            }
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        setTrackPosition(false);
+
+        // Update Dots UI
+        function updateDots() {
+            // Map clone indices to real dot index (0, 1, or 2)
+            let realIndex = currentIndex - 1;
+            if (realIndex < 0) realIndex = totalOriginalSlides - 1;
+            if (realIndex >= totalOriginalSlides) realIndex = 0;
+
+            dotIndicators.forEach((dot, idx) => {
+                if (idx === realIndex) {
+                    dot.className =
+                        "dot-indicator block w-2.5 h-2.5 rounded-full bg-[#00875A] scale-110 transition-all duration-300";
                 } else {
-                    track.style.transition = "none";
-                }
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-
-            setTrackPosition(false);
-
-            // Update Dots UI
-            function updateDots() {
-                // Map clone indices to real dot index (0, 1, or 2)
-                let realIndex = currentIndex - 1;
-                if (realIndex < 0) realIndex = totalOriginalSlides - 1;
-                if (realIndex >= totalOriginalSlides) realIndex = 0;
-
-                dotIndicators.forEach((dot, idx) => {
-                    if (idx === realIndex) {
-                        dot.className =
-                            "dot-indicator block w-2.5 h-2.5 rounded-full bg-[#00875A] scale-110 transition-all duration-300";
-                    } else {
-                        dot.className =
-                            "dot-indicator block w-2.5 h-2.5 rounded-full bg-gray-300 group-hover/dot:bg-gray-400 group-hover/dot:scale-125 transition-all duration-300";
-                    }
-                });
-            }
-
-            // Go to next slide (Smooth continuous loop)
-            function nextSlide() {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                currentIndex++;
-                setTrackPosition(true);
-                updateDots();
-            }
-
-            // Go to prev slide
-            function prevSlide() {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                currentIndex--;
-                setTrackPosition(true);
-                updateDots();
-            }
-
-            // Seamless Snap Reset on Transition End
-            track.addEventListener("transitionend", () => {
-                isTransitioning = false;
-                // Reached cloned first slide -> instantly snap to real first slide
-                if (currentIndex === totalOriginalSlides + 1) {
-                    currentIndex = 1;
-                    setTrackPosition(false);
-                }
-                // Reached cloned last slide -> instantly snap to real last slide
-                else if (currentIndex === 0) {
-                    currentIndex = totalOriginalSlides;
-                    setTrackPosition(false);
+                    dot.className =
+                        "dot-indicator block w-2.5 h-2.5 rounded-full bg-gray-300 group-hover/dot:bg-gray-400 group-hover/dot:scale-125 transition-all duration-300";
                 }
             });
+        }
 
-            // Auto Play Interval
-            function startAutoPlay() {
-                stopAutoPlay();
-                autoPlayTimer = setInterval(nextSlide, 5000);
-            }
-
-            function stopAutoPlay() {
-                if (autoPlayTimer) {
-                    clearInterval(autoPlayTimer);
-                    autoPlayTimer = null;
-                }
-            }
-
-            // Click on Dots
-            dots.forEach((dot, index) => {
-                dot.addEventListener("click", () => {
-                    if (isTransitioning) return;
-                    currentIndex = index + 1;
-                    setTrackPosition(true);
-                    updateDots();
-                    startAutoPlay();
-                });
-            });
-
-            // Pause Auto Play on Hover
-            slider.addEventListener("mouseenter", stopAutoPlay);
-            slider.addEventListener("mouseleave", startAutoPlay);
-
-            // ================= Touch & Mouse Drag Swiping =================
-            let startX = 0;
-            let moveX = 0;
-            let isDragging = false;
-
-            function handleDragStart(x) {
-                if (isTransitioning) return;
-                stopAutoPlay();
-                startX = x;
-                moveX = 0;
-                isDragging = true;
-            }
-
-            function handleDragMove(x) {
-                if (!isDragging) return;
-                moveX = x;
-            }
-
-            function handleDragEnd() {
-                if (!isDragging) return;
-                isDragging = false;
-                const diff = startX - moveX;
-                if (moveX !== 0 && Math.abs(diff) > 40) {
-                    if (diff > 0) {
-                        nextSlide();
-                    } else {
-                        prevSlide();
-                    }
-                }
-                startX = 0;
-                moveX = 0;
-                startAutoPlay();
-            }
-
-            // Touch events (Mobile)
-            slider.addEventListener("touchstart", (e) => handleDragStart(e.touches[0].clientX), {
-                passive: true
-            });
-            slider.addEventListener("touchmove", (e) => handleDragMove(e.touches[0].clientX), {
-                passive: true
-            });
-            slider.addEventListener("touchend", handleDragEnd);
-
-            // Mouse drag events (Desktop)
-            slider.addEventListener("mousedown", (e) => {
-                if (e.target.closest("button") || e.target.closest("a")) return;
-                handleDragStart(e.clientX);
-            });
-            window.addEventListener("mousemove", (e) => handleDragMove(e.clientX));
-            window.addEventListener("mouseup", handleDragEnd);
-
-            // Start
+        // Go to next slide (Smooth continuous loop)
+        function nextSlide() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex++;
+            setTrackPosition(true);
             updateDots();
-            startAutoPlay();
+        }
+
+        // Go to prev slide
+        function prevSlide() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex--;
+            setTrackPosition(true);
+            updateDots();
+        }
+
+        // Seamless Snap Reset on Transition End
+        track.addEventListener("transitionend", () => {
+            isTransitioning = false;
+            // Reached cloned first slide -> instantly snap to real first slide
+            if (currentIndex === totalOriginalSlides + 1) {
+                currentIndex = 1;
+                setTrackPosition(false);
+            }
+            // Reached cloned last slide -> instantly snap to real last slide
+            else if (currentIndex === 0) {
+                currentIndex = totalOriginalSlides;
+                setTrackPosition(false);
+            }
         });
+
+        // Auto Play Interval
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayTimer = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        }
+
+        // Click on Dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                if (isTransitioning) return;
+                currentIndex = index + 1;
+                setTrackPosition(true);
+                updateDots();
+                startAutoPlay();
+            });
+        });
+
+        // Pause Auto Play on Hover
+        slider.addEventListener("mouseenter", stopAutoPlay);
+        slider.addEventListener("mouseleave", startAutoPlay);
+
+        // ================= Touch & Mouse Drag Swiping =================
+        let startX = 0;
+        let moveX = 0;
+        let isDragging = false;
+
+        function handleDragStart(x) {
+            if (isTransitioning) return;
+            stopAutoPlay();
+            startX = x;
+            moveX = 0;
+            isDragging = true;
+        }
+
+        function handleDragMove(x) {
+            if (!isDragging) return;
+            moveX = x;
+        }
+
+        function handleDragEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            const diff = startX - moveX;
+            if (moveX !== 0 && Math.abs(diff) > 40) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+            startX = 0;
+            moveX = 0;
+            startAutoPlay();
+        }
+
+        // Touch events (Mobile)
+        slider.addEventListener("touchstart", (e) => handleDragStart(e.touches[0].clientX), {
+            passive: true
+        });
+        slider.addEventListener("touchmove", (e) => handleDragMove(e.touches[0].clientX), {
+            passive: true
+        });
+        slider.addEventListener("touchend", handleDragEnd);
+
+        // Mouse drag events (Desktop)
+        slider.addEventListener("mousedown", (e) => {
+            if (e.target.closest("button") || e.target.closest("a")) return;
+            handleDragStart(e.clientX);
+        });
+        window.addEventListener("mousemove", (e) => handleDragMove(e.clientX));
+        window.addEventListener("mouseup", handleDragEnd);
+
+        // Start
+        updateDots();
+        startAutoPlay();
+    });
     </script>
 
 </body>

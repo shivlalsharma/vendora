@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Home\Hero;
+namespace App\View\Components\Home;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -21,6 +21,6 @@ class FeatureIcon extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.home.hero.feature-icon');
+        return view('components.home.feature-icon');
     }
 }

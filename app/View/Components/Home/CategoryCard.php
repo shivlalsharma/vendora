@@ -1,17 +1,17 @@
 <?php
 
-namespace App\View\Components\Home\Hero;
+namespace App\View\Components\Home;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Slide extends Component
+class CategoryCard extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(public array $slide)
+    public function __construct(public array $category)
     {
         //
     }
@@ -21,6 +21,6 @@ class Slide extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.home.hero.slide');
+        return view('components.home.category-card');
     }
 }

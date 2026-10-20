@@ -14,7 +14,10 @@
 
         <!-- Navigation Links -->
         <div class="flex items-center gap-8 py-3 text-gray-600 font-medium">
-            <a href="#" class="text-[#00875A] font-semibold">Home</a>
+            <a href="{{ url('/') }}"
+                class="relative text-[#00875A] font-bold py-1 after:absolute after:bottom-[-13px] after:left-0 after:right-0 after:h-[2.5px] after:bg-[#00875A] after:rounded-full">
+                Home
+            </a>
             <a href="#shop" class="hover:text-[#00875A] transition">Shop</a>
             <a href="#vendors" class="hover:text-[#00875A] transition">Vendors</a>
             <a href="#deals" class="hover:text-[#00875A] transition">Deals</a>

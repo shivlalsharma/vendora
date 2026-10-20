@@ -15,6 +15,10 @@ body {
     color: #111827;
 }
 
+.container {
+    max-width: 1360px;
+}
+
 .hero-banner-bg {
     background: linear-gradient(108deg, #edf7f2 0%, #faf6ee 55%, #f4ede0 100%);
 }

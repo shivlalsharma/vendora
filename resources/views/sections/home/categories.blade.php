@@ -10,7 +10,7 @@
     </div>
 
     <!-- Categories Grid / Responsive Slider -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3.5">
+    <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-3.5">
         <?php foreach (config('data.categories') as $cat): ?>
         <x-home.category-card :category="$cat" />
         <?php endforeach; ?>

@@ -1,84 +1,20 @@
 <?php
-$features = [
-    [
-    'icon' => 'box',
-    'line_1' => 'Wide Selection',
-    'line_2' => 'of Products',
-    ],
-    [
-    'icon' => 'shield',
-    'line_1' => 'Trusted',
-    'line_2' => 'Vendors',
-    ],
-    [
-    'icon' => 'payment',
-    'line_1' => 'Secure',
-    'line_2' => 'Payments',
-    ],
-    [
-    'icon' => 'delivery',
-    'line_1' => 'Fast & Reliable',
-    'line_2' => 'Delivery',
-    ],
-];
-
-$slides = [
-    [
-    'image' => 'assets/images/everything.png',
-    'image_alt' => 'Vendora Marketplace Tabletop',
-    'callout_line_1' => 'More Choices',
-    'callout_line_2' => 'Better Deals',
-    'tagline' => 'Multi-Vendor Marketplace',
-    'priority' => true,
-    'heading_line_1' => 'Everything You Need',
-    'heading_line_2' => 'in One Place',
-    'description' => 'Shop from thousands of trusted vendors, discover unique products, and enjoy a seamless
-    shopping experience on Vendora.',
-    'btn1_title' => 'Shop Now',
-    'btn1_link' => '#shop',
-    'btn2_title' => 'Explore Vendors',
-    'btn2_link' => '#vendors',
-    ],
-    [
-    'image' => 'assets/images/tech.png',
-    'image_alt' => 'Tech Gadgets',
-    'callout_line_1' => 'Top Rated',
-    'callout_line_2' => 'Best Warranties',
-    'tagline' => 'Flash Deals &bull; Up to 40% Off',
-    'priority' => false,
-    'heading_line_1' => 'Smart Devices',
-    'heading_line_2' => 'Audio Accessories',
-    'description' => 'Upgrade your setup with official wireless gadgets, studio acoustics, and verified
-    authentic gear.',
-    'btn1_title' => 'Browse Gadgets',
-    'btn1_link' => '#shop',
-    'btn2_title' => 'View Offers',
-    'btn2_link' => '#deals',
-    ],
-    [
-    'image' => 'assets/images/headphone.png',
-    'image_alt' => 'Headphones and accessories available on Vendora',
-    'callout_line_1' => 'Fresh Fits',
-    'callout_line_2' => 'Direct To You',
-    'tagline' => 'Season New Arrivals',
-    'priority' => false,
-    'heading_line_1' => 'Trendy Styles & ',
-    'heading_line_2' => 'Everyday Living',
-    'description' => 'Shop modern collections from boutique apparel vendors with fast nationwide shipping.',
-    'btn1_title' => 'Shop Fashion',
-    'btn1_link' => '#shop',
-    'btn2_title' => 'View Boutiques',
-    'btn2_link' => '#vendors',
-    ],
-];
-
-$slides = array_map(
-    fn ($slide) => array_merge($slide, ['features'=> $features]), $slides
-);
 
 return [
-    'features'=> $features,
-    'slides'=> $slides,
+    'slides'=> [
+        [
+        'image' => 'assets/images/hero-1.png',
+        'image_alt' => 'Vendora Marketplace Tabletop'
+        ],
+        [
+        'image' => 'assets/images/hero-2.png',
+        'image_alt' => 'Tech Gadgets'
+        ],
+        [
+        'image' => 'assets/images/hero-3.png',
+        'image_alt' => 'Fashion Essentials'
+        ],
+    ],
 
     'categories'=> [
         [
@@ -189,7 +125,7 @@ return [
         ],
     ],
 
-    
+
     'promotional-banners' => [
         [
             'label' => 'New Arrivals',

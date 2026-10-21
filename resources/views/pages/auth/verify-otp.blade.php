@@ -9,7 +9,7 @@
 
             <!-- ================= LEFT PROMOTIONAL SHOWCASE ================= -->
             <div class="w-full lg:w-[60%] overflow-hidden sm:rounded-2xl">
-                <img src="{{ asset('assets/images/forgot.png') }}" alt="Vendora marketplace promotional panel"
+                <img src="{{ asset('assets/images/verify.png') }}" alt="Vendora marketplace promotional panel"
                     class="block w-full h-full object-cover">
             </div>
 

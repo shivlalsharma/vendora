@@ -7,7 +7,7 @@
         <div
             class="w-full bg-white sm:rounded-[28px] sm:border sm:border-gray-100 sm:shadow-[0_10px_35px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col lg:flex-row sm:p-5 gap-6 lg:gap-10">
             <div class="w-full lg:w-[60%] overflow-hidden sm:rounded-2xl">
-                <img src="{{ asset('assets/images/signup.png') }}" alt="Join Vendora Today - Multi-Vendor Marketplace"
+                <img src="{{ asset('assets/images/reset.png') }}" alt="Join Vendora Today - Multi-Vendor Marketplace"
                     class="block w-full h-full object-cover">
             </div>
 

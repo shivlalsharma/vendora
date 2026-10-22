@@ -44,13 +44,12 @@
             </div>
 
             <!-- Verify Code Submit Button -->
-            <button type="submit"
-                class="w-full bg-[#00875A] hover:bg-[#00744D] text-white font-bold text-sm py-3 rounded-xl shadow-sm hover:shadow transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer">
+            <x-auth.submit-btn class="flex items-center justify-center gap-2">
                 <span>Verify Code</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-            </button>
+            </x-auth.submit-btn>
         </form>
 
         <x-slot:resend-otp>

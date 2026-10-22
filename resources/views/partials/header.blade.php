@@ -40,7 +40,7 @@
                 </svg>
             </x-header.icon-link>
 
-            <x-header.icon-link label='Become a Vendor' href="#"
+            <x-header.icon-link label='Become a Vendor' href="{{ route('vendor.signup') }}"
                 class="gap-1.5 border text-gray-800 px-3.5 py-1.5 rounded-md text-xs font-bold">
                 <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">

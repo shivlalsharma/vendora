@@ -27,6 +27,8 @@ Route::middleware('auth')->controller(AuthController::class)->group(function (){
     Route::post('/logout', 'logout')->name('logout');
 });
 
+Route::view('/vendor/signup', 'vendor.pages.auth.signup')->name('vendor.signup');
+
 // Fake
 Route::get('/fake', function () {
     return view('fake.index');

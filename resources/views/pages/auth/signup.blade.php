@@ -9,54 +9,33 @@
         <form action="#" method="POST" class="space-y-4">
             @csrf
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                <!-- First Name -->
-                <div class="relative flex items-center">
-                    <span class="absolute left-3.5 text-gray-400 pointer-events-none">
+                <x-auth.input-field name="first_name" id="first_name" type="text" required placeholder='First Name'>
+                    <x-slot:icon>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
-                    </span>
-                    <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}" required
-                        autofocus placeholder="First Name"
-                        class="w-full pl-11 pr-4 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
-                </div>
+                    </x-slot:icon>
+                </x-auth.input-field>
 
-                <!-- Last Name -->
-                <div class="relative flex items-center">
-                    <span class="absolute left-3.5 text-gray-400 pointer-events-none">
+                <x-auth.input-field name="last_name" id="last_name" type="text" required placeholder='Last Name'>
+                    <x-slot:icon>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
-                    </span>
-                    <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}" required
-                        placeholder="Last Name"
-                        class="w-full pl-11 pr-4 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
-                </div>
+                    </x-slot:icon>
+                </x-auth.input-field>
             </div>
-            @error('first_name')
-                <p class="text-xs text-red-500 font-medium">{{ $message }}</p>
-            @enderror
-            @error('last_name')
-                <p class="text-xs text-red-500 font-medium">{{ $message }}</p>
-            @enderror
 
-            <!-- Email Address -->
-            <div class="relative flex items-center">
-                <span class="absolute left-3.5 text-gray-400 pointer-events-none">
+            <x-auth.input-field name="email" id="email" type="email" required placeholder='Email Address'>
+                <x-slot:icon>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                </span>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" required
-                    placeholder="Email Address"
-                    class="w-full pl-11 pr-4 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
-            </div>
-            @error('email')
-                <p class="text-xs text-red-500 font-medium">{{ $message }}</p>
-            @enderror
+                </x-slot:icon>
+            </x-auth.input-field>
 
             <!-- Phone Number with Country Flag Picker -->
             <div
@@ -100,60 +79,51 @@
                 </div>
 
                 <!-- Phone Number Input -->
-                <input type="tel" id="phone" name="phone" value="{{ old('phone') }}"
-                    placeholder="Phone Number"
+                <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" placeholder="Phone Number"
                     class="w-full px-3 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-transparent focus:outline-none">
             </div>
 
             <!-- Password -->
-            <div class="relative flex items-center">
-                <span class="absolute left-3.5 text-gray-400 pointer-events-none">
+            <x-auth.input-field name="password" id="password" type="password" required placeholder='Password'>
+                <x-slot:icon>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
-                </span>
-                <input type="password" id="password" name="password" required placeholder="Password"
-                    class="w-full pl-11 pr-11 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
+                </x-slot:icon>
+                <x-slot:toggle-btn>
+                    <button type="button" id="togglePassword"
+                        class="cursor-pointer absolute right-3.5 text-gray-400 hover:text-gray-600 focus:outline-none">
+                        <svg id="eyeIcon1" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </button>
+                </x-slot:toggle-btn>
+            </x-auth.input-field>
 
-                <!-- Toggle Password Visibility -->
-                <button type="button" id="togglePassword"
-                    class="cursor-pointer absolute right-3.5 text-gray-400 hover:text-gray-600 focus:outline-none">
-                    <svg id="eyeIcon1" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                </button>
-            </div>
-            @error('password')
-                <p class="text-xs text-red-500 font-medium">{{ $message }}</p>
-            @enderror
-
-            <!-- Confirm Password -->
-            <div class="relative flex items-center">
-                <span class="absolute left-3.5 text-gray-400 pointer-events-none">
+            <x-auth.input-field name="password_confirmation" id="password_confirmation" type="password" required
+                placeholder='Confirm Password'>
+                <x-slot:icon>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
-                </span>
-                <input type="password" id="password_confirmation" name="password_confirmation" required
-                    placeholder="Confirm Password"
-                    class="w-full pl-11 pr-11 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
-
-                <!-- Toggle Confirm Password Visibility -->
-                <button type="button" id="toggleConfirmPassword"
-                    class="cursor-pointer absolute right-3.5 text-gray-400 hover:text-gray-600 focus:outline-none">
-                    <svg id="eyeIcon2" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                </button>
-            </div>
+                </x-slot:icon>
+                <x-slot:toggle-btn>
+                    <button type="button" id="toggleConfirmPassword"
+                        class="cursor-pointer absolute right-3.5 text-gray-400 hover:text-gray-600 focus:outline-none">
+                        <svg id="eyeIcon2" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </button>
+                </x-slot:toggle-btn>
+            </x-auth.input-field>
 
             <!-- Terms & Conditions Checkbox -->
             <div class="flex items-center gap-2 pt-0.5">
@@ -168,10 +138,9 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="submit"
-                class="cursor-pointer w-full bg-[#00875A] hover:bg-[#00744D] text-white font-bold text-sm py-3 rounded-xl shadow-sm hover:shadow transition-all duration-200 mt-2">
+            <x-auth.submit-btn>
                 Create Account
-            </button>
+            </x-auth.submit-btn>
         </form>
 
         <x-slot:social-auth>

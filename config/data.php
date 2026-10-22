@@ -19,42 +19,42 @@ return [
     'categories'=> [
         [
             'name' => 'Electronics',
-            'icon' => 'laptop',
             'img' => 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&auto=format&fit=crop&q=80',
+            'slug'=> '#electronics'
         ],
         [
             'name' => 'Fashion',
-            'icon' => 'dress',
+            'slug' => '#fashion',
             'img' => 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=300&auto=format&fit=crop&q=80',
         ],
         [
             'name' => 'Home & Living',
-            'icon' => 'couch',
+            'slug' => '#home',
             'img' => 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300&auto=format&fit=crop&q=80',
         ],
         [
             'name' => 'Beauty & Health',
-            'icon' => 'sparkles',
+            'slug' => '#home',
             'img' => 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&auto=format&fit=crop&q=80',
         ],
         [
             'name' => 'Sports & Outdoors',
-            'icon' => 'sneakers',
+            'slug' => '#home',
             'img' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&auto=format&fit=crop&q=80',
         ],
         [
             'name' => 'Toys & Games',
-            'icon' => 'teddy',
+            'slug' => '#home',
             'img' => 'https://images.unsplash.com/photo-1559715745-e1b33a271c8f?w=300&auto=format&fit=crop&q=80',
         ],
         [
             'name' => 'Books & Stationery',
-            'icon' => 'book',
+            'slug' => '#home',
             'img' => 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&auto=format&fit=crop&q=80',
         ],
         [
             'name' => 'Automotive',
-            'icon' => 'car',
+            'slug' => '#home',
             'img' => 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300&auto=format&fit=crop&q=80',
         ]
     ],
@@ -157,7 +157,7 @@ return [
             'badge_bg' => 'bg-[#111827] text-white',
             'rating' => '4.8',
             'reviews' => '2.1k',
-            'products_count' => '120 Products',
+            'products_count' => '120',
         ],
         [
             'name' => 'FashionHub',
@@ -166,7 +166,7 @@ return [
             'badge_bg' => 'bg-[#BE185D] text-white',
             'rating' => '4.6',
             'reviews' => '1.8k',
-            'products_count' => '98 Products',
+            'products_count' => '98',
         ],
         [
             'name' => 'HomeEssentials',
@@ -176,7 +176,7 @@ return [
             'badge_bg' => 'bg-[#064E3B] text-white',
             'rating' => '4.7',
             'reviews' => '1.5k',
-            'products_count' => '76 Products',
+            'products_count' => '76',
         ],
         [
             'name' => 'BeautyStore',
@@ -186,7 +186,7 @@ return [
             'badge_bg' => 'bg-[#F43F5E] text-white',
             'rating' => '4.5',
             'reviews' => '1.2k',
-            'products_count' => '65 Products',
+            'products_count' => '65',
         ],
         [
             'name' => 'SportsZone',
@@ -196,7 +196,7 @@ return [
             'badge_bg' => 'bg-[#0F172A] text-white',
             'rating' => '4.6',
             'reviews' => '980',
-            'products_count' => '54 Products',
+            'products_count' => '54',
         ],
     ]
 ];

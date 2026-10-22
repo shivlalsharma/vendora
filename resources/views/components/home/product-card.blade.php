@@ -1,35 +1,37 @@
+@props(['product' => []])
+
 <div
-    class="bg-white rounded-2xl border border-gray-100 hover:border-gray-200 shadow-sm hover:shadow-lg transition-all p-3 flex flex-col justify-between group">
+    {{ $attributes->class(['bg-white rounded-2xl border border-gray-100 hover:border-gray-200 shadow-sm hover:shadow-lg transition-all p-3 flex flex-col justify-between group']) }}>
 
     <!-- Top Image & Badges -->
     <div class="relative bg-gray-50 rounded-xl overflow-hidden aspect-square flex items-center justify-center mb-3">
-        <?php if ($product['badge']): ?>
-        <span
-            class="absolute top-2 left-2 z-10 px-2 py-0.5 rounded text-[11px] font-bold <?= $product['badge_color'] ?>">
-            <?= $product['badge'] ?>
-        </span>
-        <?php endif; ?>
+        @if (!empty($product['badge']))
+            <span
+                class="absolute top-2 left-2 z-10 px-2 py-0.5 rounded text-[11px] font-bold {{ $product['badge_color'] }}">
+                {{ $product['badge'] }}
+            </span>
+        @endif
 
         <!-- Wishlist Icon -->
         <button
-            class="absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/90 text-gray-500 hover:text-red-500 transition shadow-sm">
+            class="cursor-pointer absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/90 text-gray-500 hover:text-red-500 transition shadow-sm">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
         </button>
 
-        <img src="<?= $product['image'] ?>" alt="<?= htmlspecialchars($product['title']) ?>"
+        <img src="{{ $product['image'] }}" loading='lazy' alt="{{ $product['title'] }}"
             class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
     </div>
 
     <!-- Product Info -->
     <div class="space-y-1">
         <h3 class="text-sm font-bold text-gray-900 group-hover:text-[#00875A] transition truncate">
-            <?= htmlspecialchars($product['title']) ?>
+            {{ $product['title'] }}
         </h3>
         <p class="text-[11px] text-gray-500 truncate">
-            <?= htmlspecialchars($product['subtitle']) ?>
+            {{ $product['subtitle'] ?? '' }}
         </p>
 
         <!-- Rating -->
@@ -38,14 +40,18 @@
                 <path
                     d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
-            <span class="text-xs font-bold text-gray-800"><?= $product['rating'] ?></span>
-            <span class="text-[11px] text-gray-400">(<?= $product['reviews'] ?>)</span>
+            <span class="text-xs font-bold text-gray-800">{{ $product['rating'] ?? '-' }}</span>
+            <span class="text-[11px] text-gray-400">({{ $product['reviews'] ?? 0 }})</span>
         </div>
 
         <!-- Pricing -->
         <div class="flex items-baseline gap-2 pt-1">
-            <span class="text-base font-extrabold text-gray-900">$<?= $product['price'] ?></span>
-            <span class="text-xs text-gray-400 line-through">$<?= $product['old_price'] ?></span>
+            <span
+                class="text-base font-extrabold text-gray-900">${{ number_format((float) $product['price'], 2) }}</span>
+            @if (isset($product['old_price']) && $product['old_price'] > $product['price'])
+                <span
+                    class="text-xs text-gray-400 line-through">${{ number_format((float) $product['old_price'], 2) }}</span>
+            @endif
         </div>
     </div>
 

@@ -23,61 +23,58 @@
 
         <!-- Header Right Menu -->
         <div class="flex items-center gap-5 text-sm font-semibold text-gray-700">
-            <a href="{{ route('signin') }}" class="flex items-center gap-1.5 hover:text-[#00875A] transition">
+            <x-header.icon-link label='Login' href="{{ route('signin') }}" class="gap-1.5">
                 <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
-                <span>Login</span>
-            </a>
+            </x-header.icon-link>
+
             <span class="text-gray-300">|</span>
-            <a href="{{ route('signup') }}" class="flex items-center gap-1.5 hover:text-[#00875A] transition">
+            <x-header.icon-link label='Register' href="{{ route('signup') }}" class="gap-1.5">
                 <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                 </svg>
-                <span>Register</span>
-            </a>
+            </x-header.icon-link>
 
-            <a href="#vendor-register"
-                class="flex items-center gap-2 border text-gray-800 hover:text-[#00875A] px-3.5 py-1.5 rounded-md text-xs font-bold transition">
+            <x-header.icon-link label='Become a Vendor' href="#"
+                class="gap-1.5 border text-gray-800 px-3.5 py-1.5 rounded-md text-xs font-bold">
                 <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
-                <span>Become a Vendor</span>
-            </a>
+            </x-header.icon-link>
 
-            <a href="#notifications" class="relative p-1 text-gray-600 hover:text-[#00875A] transition"
-                aria-label="Notifications">
+            <x-header.icon-badge href="#notifications" label="Notifications" :count="3"
+                badgeClass="-top-1 -right-1.5 bg-[#EF4444] text-[10px]"
+                class="p-1 text-gray-600 hover:text-[#00875A] transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                 </svg>
-                <span
-                    class="absolute -top-1 -right-1.5 bg-[#EF4444] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">3</span>
-            </a>
+            </x-header.icon-badge>
 
-            <a href="#wishlist" class="relative p-1 text-gray-600 hover:text-[#00875A] transition">
+            <x-header.icon-badge href="#wishlist" label="Wishlist" :count="4"
+                badgeClass="-top-1 -right-1.5 bg-[#EF4444] text-[10px]"
+                class="p-1 text-gray-600 hover:text-[#00875A] transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
-                <span
-                    class="absolute -top-1 -right-1.5 bg-[#EF4444] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">3</span>
-            </a>
+            </x-header.icon-badge>
 
-            <a href="#cart" class="relative p-1 text-gray-600 hover:text-[#00875A] transition">
+            <x-header.icon-badge href="#cart" label="Cart" :count="2"
+                badgeClass="-top-1 -right-1.5 bg-[#00875A] text-[10px]"
+                class="p-1 text-gray-600 hover:text-[#00875A] transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
-                <span
-                    class="absolute -top-1 -right-1.5 bg-[#00875A] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">2</span>
-            </a>
+            </x-header.icon-badge>
 
             {{-- <div class="relative group/profile py-2 ml-8">
                 <!-- Profile Trigger Button -->

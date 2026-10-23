@@ -13,6 +13,7 @@ export default defineConfig({
                 "resources/js/pages/auth/signup.js",
                 "resources/js/pages/auth/verify-otp.js",
                 "resources/js/pages/auth/reset-password.js",
+                "resources/js/pages/auth/vendor-signup.js",
             ],
             refresh: true,
             fonts: [

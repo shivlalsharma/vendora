@@ -72,63 +72,92 @@
                             <p class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
                         </div>
 
-                        <!-- Password & Confirm Password (Lock + Toggle Eye Icons) -->
+                        <!-- Business Type & Country Selection -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                             <div>
-                                <label for="password" class="block text-xs font-bold text-gray-700 mb-1.5">Password <span
-                                        class="text-red-500">*</span></label>
-                                <div class="relative flex items-center">
-                                    <span class="absolute left-3.5 text-gray-400 pointer-events-none">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                        </svg>
-                                    </span>
-                                    <input type="password" name="password" id="password" placeholder="Create password"
-                                        class="w-full pl-11 pr-10 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
-                                    <button type="button"
-                                        class="toggle-password-btn absolute right-3 text-gray-400 hover:text-gray-600 focus:outline-none">
-                                        <svg class="eye-icon w-4.5 h-4.5" fill="none" stroke="currentColor"
-                                            stroke-width="1.8" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                        </svg>
-                                    </button>
-                                </div>
+                                <label for="business_type" class="block text-xs font-bold text-gray-700 mb-1.5">Business
+                                    Type <span class="text-red-500">*</span></label>
+                                <select name="business_type" id="business_type"
+                                    class="w-full px-3.5 py-2.5 text-xs sm:text-sm text-gray-800 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
+                                    <option value="">Select business type</option>
+                                    <option value="sole_proprietorship">Sole Proprietorship</option>
+                                    <option value="llc">LLC</option>
+                                    <option value="corporation">Corporation</option>
+                                    <option value="individual">Individual</option>
+                                </select>
                                 <p class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
                             </div>
 
+                            <!-- Country / Region Custom Searchable Dropdown -->
                             <div>
-                                <label for="password_confirmation"
-                                    class="block text-xs font-bold text-gray-700 mb-1.5">Confirm Password <span
-                                        class="text-red-500">*</span></label>
-                                <div class="relative flex items-center">
-                                    <span class="absolute left-3.5 text-gray-400 pointer-events-none">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                        </svg>
-                                    </span>
-                                    <input type="password" name="password_confirmation" id="password_confirmation"
-                                        placeholder="Confirm password"
-                                        class="w-full pl-11 pr-10 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
-                                    <button type="button"
-                                        class="toggle-password-btn absolute right-3 text-gray-400 hover:text-gray-600 focus:outline-none">
-                                        <svg class="eye-icon w-4.5 h-4.5" fill="none" stroke="currentColor"
-                                            stroke-width="1.8" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                <label for="countryTrigger" class="block text-xs font-bold text-gray-700 mb-1.5">Country /
+                                    Region <span class="text-red-500">*</span></label>
+
+                                <div id="countryWrapper" class="relative">
+                                    <!-- Trigger Button: Flag + Selected Country Name -->
+                                    <button type="button" id="countryRegionTrigger" aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                        class="w-full flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-sm text-gray-800 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition cursor-pointer select-none">
+                                        <div class="flex items-center gap-2.5 overflow-hidden">
+                                            <!-- Selected Flag Container (fixed dimensions) -->
+                                            <span id="selectedRegionFlag"
+                                                class="w-5 h-3.5 rounded-[2px] shadow-2xs overflow-hidden flex items-center justify-center shrink-0 hidden">
+                                                <img src="" alt="" class="w-full h-full object-cover">
+                                            </span>
+                                            <span id="selectedRegionText" class="text-gray-400 font-normal truncate">Select
+                                                country</span>
+                                        </div>
+
+                                        <svg id="regionChevronIcon"
+                                            class="w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ml-2"
+                                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                                         </svg>
                                     </button>
+
+                                    <!-- Hidden Input sent with form submission & validation -->
+                                    <input type="hidden" name="country" id="country" value="">
+
+                                    <!-- ================= DROPDOWN MENU ================= -->
+                                    <div id="countryRegionMenu"
+                                        class="hidden absolute left-0 right-0 top-[calc(100%+6px)] bg-white border border-gray-100 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] p-2.5 z-50 transition-all duration-150">
+
+                                        <!-- Quick Search Input -->
+                                        <div class="relative mb-2 px-0.5">
+                                            <span
+                                                class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                    stroke-width="2" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                                </svg>
+                                            </span>
+                                            <input type="text" id="regionSearchInput" placeholder="Search country..."
+                                                autocomplete="off"
+                                                class="w-full pl-9 pr-3 py-1.5 text-xs text-gray-800 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:bg-white transition">
+                                        </div>
+
+                                        <!-- Dynamic Country List Container -->
+                                        <ul id="regionCountryList"
+                                            class="max-h-56 overflow-y-auto space-y-0.5 pr-1 text-xs"></ul>
+                                    </div>
                                 </div>
-                                <p class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
+
+                                <!-- Error Text -->
+                                <p id="countryError" class="error-text text-[11px] text-red-500 font-medium mt-1 hidden">
+                                    Please select your country.</p>
                             </div>
+                        </div>
+
+                        <!-- Business Address -->
+                        <div>
+                            <label for="business_address" class="block text-xs font-bold text-gray-700 mb-1.5">Business
+                                Address <span class="text-red-500">*</span></label>
+                            <div>
+                                <textarea name="business_address" id="business_address" rows="2" placeholder="Enter your business address"
+                                    class="w-full px-3.5 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition resize-none"></textarea>
+                            </div>
+                            <p class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
                         </div>
 
                         <!-- Business Email & Phone -->
@@ -219,90 +248,63 @@
                             </div>
                         </div>
 
-                        <!-- Business Type & Country Selection -->
+                        <!-- Password & Confirm Password (Lock + Toggle Eye Icons) -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                             <div>
-                                <label for="business_type" class="block text-xs font-bold text-gray-700 mb-1.5">Business
-                                    Type <span class="text-red-500">*</span></label>
-                                <select name="business_type" id="business_type"
-                                    class="w-full px-3.5 py-2.5 text-xs sm:text-sm text-gray-800 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
-                                    <option value="">Select business type</option>
-                                    <option value="sole_proprietorship">Sole Proprietorship</option>
-                                    <option value="llc">LLC</option>
-                                    <option value="corporation">Corporation</option>
-                                    <option value="individual">Individual</option>
-                                </select>
+                                <label for="password" class="block text-xs font-bold text-gray-700 mb-1.5">Password <span
+                                        class="text-red-500">*</span></label>
+                                <div class="relative flex items-center">
+                                    <span class="absolute left-3.5 text-gray-400 pointer-events-none">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                        </svg>
+                                    </span>
+                                    <input type="password" name="password" id="password" placeholder="Create password"
+                                        class="w-full pl-11 pr-10 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
+                                    <button type="button"
+                                        class="toggle-password-btn absolute right-3 text-gray-400 hover:text-gray-600 focus:outline-none">
+                                        <svg class="eye-icon w-4.5 h-4.5" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <p class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
                             </div>
 
-                            <!-- Country / Region Custom Searchable Dropdown -->
                             <div>
-                                <label for="countryTrigger" class="block text-xs font-bold text-gray-700 mb-1.5">Country /
-                                    Region <span class="text-red-500">*</span></label>
-
-                                <div id="countryWrapper" class="relative">
-                                    <!-- Trigger Button: Flag + Selected Country Name -->
-                                    <button type="button" id="countryRegionTrigger" aria-haspopup="listbox"
-                                        aria-expanded="false"
-                                        class="w-full flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-sm text-gray-800 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition cursor-pointer select-none">
-                                        <div class="flex items-center gap-2.5 overflow-hidden">
-                                            <!-- Selected Flag Container (fixed dimensions) -->
-                                            <span id="selectedRegionFlag"
-                                                class="w-5 h-3.5 rounded-[2px] shadow-2xs overflow-hidden flex items-center justify-center shrink-0 hidden">
-                                                <img src="" alt="" class="w-full h-full object-cover">
-                                            </span>
-                                            <span id="selectedRegionText"
-                                                class="text-gray-400 font-normal truncate">Select country</span>
-                                        </div>
-
-                                        <svg id="regionChevronIcon"
-                                            class="w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ml-2"
-                                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                <label for="password_confirmation"
+                                    class="block text-xs font-bold text-gray-700 mb-1.5">Confirm Password <span
+                                        class="text-red-500">*</span></label>
+                                <div class="relative flex items-center">
+                                    <span class="absolute left-3.5 text-gray-400 pointer-events-none">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                        </svg>
+                                    </span>
+                                    <input type="password" name="password_confirmation" id="password_confirmation"
+                                        placeholder="Confirm password"
+                                        class="w-full pl-11 pr-10 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
+                                    <button type="button"
+                                        class="toggle-password-btn absolute right-3 text-gray-400 hover:text-gray-600 focus:outline-none">
+                                        <svg class="eye-icon w-4.5 h-4.5" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                         </svg>
                                     </button>
-
-                                    <!-- Hidden Input sent with form submission & validation -->
-                                    <input type="hidden" name="country" id="country" value="">
-
-                                    <!-- ================= DROPDOWN MENU ================= -->
-                                    <div id="countryRegionMenu"
-                                        class="hidden absolute left-0 right-0 top-[calc(100%+6px)] bg-white border border-gray-100 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] p-2.5 z-50 transition-all duration-150">
-
-                                        <!-- Quick Search Input -->
-                                        <div class="relative mb-2 px-0.5">
-                                            <span
-                                                class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor"
-                                                    stroke-width="2" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                                </svg>
-                                            </span>
-                                            <input type="text" id="regionSearchInput" placeholder="Search country..."
-                                                autocomplete="off"
-                                                class="w-full pl-9 pr-3 py-1.5 text-xs text-gray-800 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:bg-white transition">
-                                        </div>
-
-                                        <!-- Dynamic Country List Container -->
-                                        <ul id="regionCountryList"
-                                            class="max-h-56 overflow-y-auto space-y-0.5 pr-1 text-xs"></ul>
-                                    </div>
                                 </div>
-
-                                <!-- Error Text -->
-                                <p id="countryError" class="error-text text-[11px] text-red-500 font-medium mt-1 hidden">
-                                    Please select your country.</p>
+                                <p class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
                             </div>
-                        </div>
-
-                        <!-- Business Address -->
-                        <div>
-                            <label for="business_address" class="block text-xs font-bold text-gray-700 mb-1.5">Business
-                                Address <span class="text-red-500">*</span></label>
-                            <textarea name="business_address" id="business_address" rows="2" placeholder="Enter your business address"
-                                class="w-full px-3.5 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition resize-none"></textarea>
-                            <p class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
                         </div>
 
                         <!-- Terms -->
@@ -358,22 +360,22 @@
                             </div>
                         </div>
 
+                        <div>
+                            <label for="store_name" class="block text-xs font-bold text-gray-700 mb-1.5">Store Name
+                                <span class="text-red-500">*</span></label>
+                            <input type="text" name="store_name" id="store_name" placeholder="e.g. TrendNest"
+                                class="w-full px-3.5 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
+                            <p class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
+                        </div>
+
                         <!-- Store Name & In-Place Logo Preview -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 items-start">
-                            <div>
-                                <label for="store_name" class="block text-xs font-bold text-gray-700 mb-1.5">Store Name
-                                    <span class="text-red-500">*</span></label>
-                                <input type="text" name="store_name" id="store_name" placeholder="e.g. TrendNest"
-                                    class="w-full px-3.5 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition">
-                                <p class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
-                            </div>
-
                             <!-- Store Logo Box with In-Place Preview -->
                             <div>
                                 <label class="block text-xs font-bold text-gray-700 mb-1.5">Store Logo <span
                                         class="text-red-500">*</span></label>
                                 <div
-                                    class="upload-dropzone relative border-2 border-dashed border-gray-200 hover:border-[#00875A] rounded-xl p-3 flex flex-col items-center justify-center text-center cursor-pointer transition bg-gray-50/50 min-h-[96px] overflow-hidden group">
+                                    class="upload-dropzone relative border border-dashed border-gray-200 hover:border-[#00875A] rounded-xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition bg-gray-50/50  overflow-hidden group">
                                     <input type="file" name="store_logo" id="store_logo"
                                         accept="image/png, image/jpeg, image/webp"
                                         class="file-input absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
@@ -401,39 +403,40 @@
                                 </div>
                                 <p id="logoError" class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
                             </div>
-                        </div>
+                            <!-- Store Banner (Direct In-Place Preview Box) -->
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1.5">Store Banner <span
+                                        class="text-gray-400 font-normal">(Optional)</span></label>
+                                <div
+                                    class="upload-dropzone relative border border-dashed border-gray-200 hover:border-[#00875A] rounded-xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition bg-gray-50/50 overflow-hidden group">
+                                    <input type="file" name="store_banner" id="store_banner"
+                                        accept="image/png, image/jpeg, image/webp"
+                                        class="file-input absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
 
-                        <!-- Store Banner (Direct In-Place Preview Box) -->
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 mb-1.5">Store Banner <span
-                                    class="text-gray-400 font-normal">(Optional)</span></label>
-                            <div
-                                class="upload-dropzone relative border-2 border-dashed border-gray-200 hover:border-[#00875A] rounded-xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition bg-gray-50/50 min-h-[110px] overflow-hidden group">
-                                <input type="file" name="store_banner" id="store_banner"
-                                    accept="image/png, image/jpeg, image/webp"
-                                    class="file-input absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                                    <div class="upload-placeholder flex flex-col items-center justify-center">
+                                        <svg class="w-6 h-6 text-gray-400 mb-1" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        <span class="text-xs font-bold text-gray-700"><span class="text-[#00875A]">Click
+                                                to
+                                                upload</span> or drag and drop</span>
+                                        <span class="text-[10px] text-gray-400 mt-0.5">JPG, PNG (Max 5MB)</span>
+                                    </div>
 
-                                <div class="upload-placeholder flex flex-col items-center justify-center">
-                                    <svg class="w-6 h-6 text-gray-400 mb-1" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                    <span class="text-xs font-bold text-gray-700"><span class="text-[#00875A]">Click to
-                                            upload</span> or drag and drop</span>
-                                    <span class="text-[10px] text-gray-400 mt-0.5">JPG, PNG (Max 5MB)</span>
-                                </div>
-
-                                <div class="preview-container hidden absolute inset-0 w-full h-full bg-white">
-                                    <img src="#" alt="Banner Preview"
-                                        class="preview-img w-full h-full object-cover">
-                                    <div
-                                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold">
-                                        Click to Change Banner
+                                    <div class="preview-container hidden absolute inset-0 w-full h-full bg-white">
+                                        <img src="#" alt="Banner Preview"
+                                            class="preview-img w-full h-full object-cover">
+                                        <div
+                                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold">
+                                            Click to Change Banner
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
 
                         <!-- Store Description -->
                         <div>
@@ -442,9 +445,11 @@
                                     <span class="text-red-500">*</span></label>
                                 <span id="charCount" class="text-[11px] text-gray-400 font-medium">0/500</span>
                             </div>
-                            <textarea name="store_description" id="store_description" rows="3" maxlength="500"
-                                placeholder="Tell customers about your store, products and brand..."
-                                class="w-full px-3.5 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition resize-none"></textarea>
+                            <div>
+                                <textarea name="store_description" id="store_description" rows="3" maxlength="500"
+                                    placeholder="Tell customers about your store, products and brand..."
+                                    class="w-full px-3.5 py-2.5 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#00875A] focus:ring-1 focus:ring-[#00875A] transition resize-none"></textarea>
+                            </div>
                             <p class="error-text text-[11px] text-red-500 font-medium mt-1 hidden"></p>
                         </div>
 
@@ -582,7 +587,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 <!-- Front ID -->
                                 <div
-                                    class="upload-dropzone relative border border-gray-200 hover:border-[#00875A] rounded-xl p-3 flex flex-col items-center justify-center text-center cursor-pointer transition bg-gray-50/50 min-h-[105px] overflow-hidden group">
+                                    class="upload-dropzone relative border border-dashed border-gray-200 hover:border-[#00875A] rounded-xl p-3 flex flex-col items-center justify-center text-center cursor-pointer transition bg-gray-50/50 overflow-hidden group">
                                     <input type="file" name="id_front" id="id_front" accept="image/*"
                                         class="file-input absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
                                     <div class="upload-placeholder flex flex-col items-center justify-center">
@@ -605,7 +610,7 @@
 
                                 <!-- Back ID -->
                                 <div
-                                    class="upload-dropzone relative border border-gray-200 hover:border-[#00875A] rounded-xl p-3 flex flex-col items-center justify-center text-center cursor-pointer transition bg-gray-50/50 min-h-[105px] overflow-hidden group">
+                                    class="upload-dropzone relative border border-dashed border-gray-200 hover:border-[#00875A] rounded-xl p-3 flex flex-col items-center justify-center text-center cursor-pointer transition bg-gray-50/50 overflow-hidden group">
                                     <input type="file" name="id_back" id="id_back" accept="image/*"
                                         class="file-input absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
                                     <div class="upload-placeholder flex flex-col items-center justify-center">
@@ -628,7 +633,7 @@
 
                                 <!-- Selfie with ID -->
                                 <div
-                                    class="upload-dropzone relative border border-gray-200 hover:border-[#00875A] rounded-xl p-3 flex flex-col items-center justify-center text-center cursor-pointer transition bg-gray-50/50 min-h-[105px] overflow-hidden group">
+                                    class="upload-dropzone relative border border-dashed border-gray-200 hover:border-[#00875A] rounded-xl p-3 flex flex-col items-center justify-center text-center cursor-pointer transition bg-gray-50/50 overflow-hidden group">
                                     <input type="file" name="id_selfie" id="id_selfie" accept="image/*"
                                         class="file-input absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
                                     <div class="upload-placeholder flex flex-col items-center justify-center">

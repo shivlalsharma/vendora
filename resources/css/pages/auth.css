@@ -1,0 +1,39 @@
+/* 1. Cross-browser standard (Firefox / Modern Web) */
+.custom-scrollbar {
+    scrollbar-width: thin !important;
+    scrollbar-color: #00875A #f3f4f6 !important;
+}
+
+/* 2. WebKit (Chrome, Edge, Safari, Brave) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px !important;
+    height: 4px !important;
+}
+
+/* Remove the default top/down arrow buttons completely */
+.custom-scrollbar::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Track (Background behind scrollbar thumb) */
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f3f4f6 !important;
+    border-radius: 9999px !important;
+}
+
+/* Thumb (The actual draggable green bar) */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #00875A !important;
+    border-radius: 9999px !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #00744D !important;
+}
+
+/* Corner when both horizontal & vertical exist */
+.custom-scrollbar::-webkit-scrollbar-corner {
+    background: transparent !important;
+}

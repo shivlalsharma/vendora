@@ -14,7 +14,7 @@
 
         <!-- Navigation Links -->
         <div class="flex items-center gap-8 py-3 text-gray-600 font-medium">
-            <a href="{{ url('/') }}"
+            <a href="{{ route('home') }}"
                 class="relative text-[#00875A] font-bold py-1 after:absolute after:bottom-[-13px] after:left-0 after:right-0 after:h-[2.5px] after:bg-[#00875A] after:rounded-full">
                 Home
             </a>

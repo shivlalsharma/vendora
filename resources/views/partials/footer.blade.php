@@ -4,7 +4,7 @@
 
             <!-- Brand Info -->
             <div class="lg:col-span-4 space-y-4">
-                <a href="#" class="flex items-center gap-2">
+                <a href="{{ route('home') }}" class="flex items-center gap-2">
                     <svg class="h-8 w-auto" viewBox="0 0 460 380" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M140 120 C140 60, 220 60, 220 120" stroke="#00875A" stroke-width="26"
                             stroke-linecap="round" fill="none" />
@@ -47,7 +47,7 @@
             <div class="lg:col-span-2 space-y-3">
                 <h5 class="text-sm font-bold text-white tracking-wide">Quick Links</h5>
                 <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white transition">Home</a></li>
+                    <li><a href="{{ route('home') }}" class="hover:text-white transition">Home</a></li>
                     <li><a href="#shop" class="hover:text-white transition">Shop</a></li>
                     <li><a href="#vendors" class="hover:text-white transition">Vendors</a></li>
                     <li><a href="#deals" class="hover:text-white transition">Deals</a></li>

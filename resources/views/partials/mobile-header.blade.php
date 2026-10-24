@@ -6,8 +6,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
-            <a href="#" class="flex items-center gap-2 flex-shrink-0">
-                <img src="{{ asset('assets/images/logo.png') }}" class="h-10 w-full" alt="">
+            <a href="{{ route('home') }}" class="flex items-center gap-2 flex-shrink-0">
+                <img src="{{ asset('assets/images/logo.webp') }}" class="h-10 w-full" alt="">
             </a>
         </div>
         <div class="flex items-center gap-4 text-gray-700">

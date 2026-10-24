@@ -3,7 +3,7 @@
 @section('title', 'Sign In - Vendora')
 
 @section('content')
-    <x-auth.auth-card image="{{ asset('assets/images/signin.png') }}" title='Sign in to your account'
+    <x-auth.auth-card image="{{ asset('assets/images/signin.webp') }}" title='Sign in to your account'
         subtitle='Enter your registered email and password to
                      securely access your account'>
         <form action="#" method="POST" class="space-y-4">

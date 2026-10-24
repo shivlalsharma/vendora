@@ -7,7 +7,7 @@
 @endphp
 
 @section('content')
-    <x-auth.auth-card image="{{ asset('assets/images/verify.png') }}" title='Verify OTP' :subtitle="$subTitle">
+    <x-auth.auth-card image="{{ asset('assets/images/verify-otp.webp') }}" title='Verify OTP' :subtitle="$subTitle">
         <form id="otpForm" action="#" method="POST" class="space-y-4">
             @csrf
             <input type="hidden" name="email" value="{{ session('email') }}">

@@ -2,7 +2,7 @@
 
 @section('title', 'Reset Password - Vendora')
 @section('content')
-    <x-auth.auth-card image="{{ asset('assets/images/reset.png') }}" title='Reset Your Password'
+    <x-auth.auth-card image="{{ asset('assets/images/reset-password.webp') }}" title='Reset Your Password'
         subtitle="Enter your new password below. Make sure it is at least 8 characters long and includes a number
                         or special character.">
         <form action="#" method="POST" class="space-y-4">

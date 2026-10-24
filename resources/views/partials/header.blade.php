@@ -2,8 +2,8 @@
     <div class="max-w-[1360px] mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-6">
 
         <!-- Logo -->
-        <a href="#" class="flex items-center gap-2 flex-shrink-0">
-            <img src="{{ asset('assets/images/logo.png') }}" class="h-14 w-full" alt="">
+        <a href="{{ route('home') }}" class="flex items-center gap-2 flex-shrink-0">
+            <img src="{{ asset('assets/images/logo.webp') }}" class="h-14 w-full" alt="">
         </a>
 
         <!-- Search Bar -->

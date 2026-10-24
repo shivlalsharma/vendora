@@ -3,7 +3,7 @@
 @section('title', 'Forgot Password - Vendora')
 
 @section('content')
-    <x-auth.auth-card image="{{ asset('assets/images/forgot.png') }}" title='Forgot Password?'
+    <x-auth.auth-card image="{{ asset('assets/images/forgot-password.webp') }}" title='Forgot Password?'
         subtitle='Enter your registered email address to receive a one-time verification code'>
         <form action="#" method="POST" class="space-y-4">
             @csrf

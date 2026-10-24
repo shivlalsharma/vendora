@@ -3,15 +3,15 @@
 return [
     'slides'=> [
         [
-        'image' => 'assets/images/hero-1.png',
+        'image' => 'assets/images/hero-1.webp',
         'image_alt' => 'Vendora Marketplace Tabletop'
         ],
         [
-        'image' => 'assets/images/hero-2.png',
+        'image' => 'assets/images/hero-2.webp',
         'image_alt' => 'Tech Gadgets'
         ],
         [
-        'image' => 'assets/images/hero-3.png',
+        'image' => 'assets/images/hero-3.webp',
         'image_alt' => 'Fashion Essentials'
         ],
     ],

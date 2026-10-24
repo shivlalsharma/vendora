@@ -1,52 +1,13 @@
-// resources/js/pages/auth/vendor-signup.js
+// ==========================================
+// 1. DATASETS (FROZEN & PERFORMANCE OPTIMIZED)
+// ==========================================
+import { businessTypes, countries } from "../../../data";
+
 document.addEventListener("DOMContentLoaded", () => {
-    // ==========================================
-    // 1. DATASETS (FROZEN & PERFORMANCE OPTIMIZED)
-    // ==========================================
-    const countries = Object.freeze([
-        { name: "India", code: "in", dial: "+91" },
-        { name: "United States", code: "us", dial: "+1" },
-        { name: "United Kingdom", code: "gb", dial: "+44" },
-        { name: "Canada", code: "ca", dial: "+1" },
-        { name: "Australia", code: "au", dial: "+61" },
-        { name: "United Arab Emirates", code: "ae", dial: "+971" },
-        { name: "Saudi Arabia", code: "sa", dial: "+966" },
-        { name: "Germany", code: "de", dial: "+49" },
-        { name: "France", code: "fr", dial: "+33" },
-        { name: "Singapore", code: "sg", dial: "+65" },
-        { name: "Malaysia", code: "my", dial: "+60" },
-        { name: "Japan", code: "jp", dial: "+81" },
-        { name: "China", code: "cn", dial: "+86" },
-        { name: "Brazil", code: "br", dial: "+55" },
-        { name: "South Africa", code: "za", dial: "+27" },
-        { name: "Nigeria", code: "ng", dial: "+234" },
-        { name: "Pakistan", code: "pk", dial: "+92" },
-        { name: "Bangladesh", code: "bd", dial: "+880" },
-        { name: "Philippines", code: "ph", dial: "+63" },
-        { name: "Italy", code: "it", dial: "+39" },
-        { name: "Spain", code: "es", dial: "+34" },
-        { name: "Netherlands", code: "nl", dial: "+31" },
-        { name: "New Zealand", code: "nz", dial: "+64" },
-        { name: "Mexico", code: "mx", dial: "+52" }
-    ]);
-
-    const businessTypes = Object.freeze([
-        { value: "sole_proprietorship", label: "Sole Proprietorship" },
-        { value: "individual", label: "Individual / Freelancer" },
-        { value: "llc", label: "Limited Liability Company" },
-        { value: "private_limited", label: "Private Limited Company" },
-        { value: "public_limited", label: "Public Limited Company" },
-        { value: "partnership", label: "General Partnership" },
-        { value: "llp", label: "Limited Liability Partnership" },
-        { value: "corporation", label: "Corporation (C-Corp / S-Corp)" },
-        { value: "cooperative", label: "Cooperative (Co-op)" },
-        { value: "non_profit", label: "Non-Profit Organization" }
-    ]);
-
     // Preload Step 2 & 3 images during idle time
     const heroImage = document.getElementById("leftHeroImage");
     if (heroImage) {
-        ['data-step2-img', 'data-step3-img'].forEach(attr => {
+        ["data-step2-img", "data-step3-img"].forEach((attr) => {
             const src = heroImage.getAttribute(attr);
             if (src) {
                 const img = new Image();
@@ -80,9 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderPhoneCountries(list) {
         if (!phoneCountryList) return;
-        phoneCountryList.innerHTML = list.length === 0
-            ? `<li class="px-3 py-2 text-center text-xs text-gray-400">No countries found</li>`
-            : list.map(item => `
+        phoneCountryList.innerHTML =
+            list.length === 0
+                ? `<li class="px-3 py-2 text-center text-xs text-gray-400">No countries found</li>`
+                : list
+                      .map(
+                          (item) => `
                 <li>
                     <button type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-left hover:bg-emerald-50/60 transition group cursor-pointer"
                             data-dial="${item.dial}" data-code="${item.code}">
@@ -95,24 +59,26 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span class="font-bold text-gray-400 group-hover:text-[#00875A]">${item.dial}</span>
                     </button>
                 </li>
-            `).join('');
+            `,
+                      )
+                      .join("");
     }
 
     if (phoneCountryList) {
-        phoneCountryList.addEventListener('click', (e) => {
-            const btn = e.target.closest('button');
+        phoneCountryList.addEventListener("click", (e) => {
+            const btn = e.target.closest("button");
             if (!btn) return;
             const dial = btn.dataset.dial;
             const code = btn.dataset.code;
 
-            if (phoneFlagSlot) phoneFlagSlot.innerHTML = `<img src="https://flagcdn.com/w40/${code}.png" alt="${code}" class="w-full h-full object-cover">`;
+            if (phoneFlagSlot)
+                phoneFlagSlot.innerHTML = `<img src="https://flagcdn.com/w40/${code}.png" alt="${code}" class="w-full h-full object-cover">`;
             if (phoneDialSlot) phoneDialSlot.textContent = dial;
             if (hiddenDialInput) hiddenDialInput.value = dial;
 
             togglePhoneDropdown(false);
             if (phoneInput) {
                 phoneInput.focus();
-                validatePhone();
             }
         });
     }
@@ -148,7 +114,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     phoneSearch?.addEventListener("input", (e) => {
         const query = e.target.value.toLowerCase().trim();
-        renderPhoneCountries(countries.filter(c => c.name.toLowerCase().includes(query) || c.dial.includes(query)));
+        renderPhoneCountries(
+            countries.filter(
+                (c) =>
+                    c.name.toLowerCase().includes(query) ||
+                    c.dial.includes(query),
+            ),
+        );
     });
 
     const validatePhone = () => {
@@ -167,7 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (rawDigits.length < 7 || rawDigits.length > 15) {
             phoneWrapper?.classList.add("border-red-500");
             if (phoneError) {
-                phoneError.textContent = "Please enter a valid phone number (7 to 15 digits).";
+                phoneError.textContent =
+                    "Please enter a valid phone number (7 to 15 digits).";
                 phoneError.classList.remove("hidden");
             }
             return false;
@@ -180,7 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     phoneInput?.addEventListener("input", () => {
         phoneInput.value = phoneInput.value.replace(/[^\d\s\-()]/g, "");
-        validatePhone();
     });
 
     // ==========================================
@@ -199,9 +171,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderBusinessTypes(list) {
         if (!bizList) return;
-        bizList.innerHTML = list.length === 0
-            ? `<li class="px-3 py-2 text-center text-xs text-gray-400">No business type found</li>`
-            : list.map(item => `
+        bizList.innerHTML =
+            list.length === 0
+                ? `<li class="px-3 py-2 text-center text-xs text-gray-400">No business type found</li>`
+                : list
+                      .map(
+                          (item) => `
                 <li>
                     <button type="button" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left hover:bg-emerald-50/60 transition group cursor-pointer"
                             data-value="${item.value}" data-label="${item.label}">
@@ -211,12 +186,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     </button>
                 </li>
-            `).join('');
+            `,
+                      )
+                      .join("");
     }
 
     if (bizList) {
-        bizList.addEventListener('click', (e) => {
-            const btn = e.target.closest('button');
+        bizList.addEventListener("click", (e) => {
+            const btn = e.target.closest("button");
             if (!btn) return;
 
             const val = btn.dataset.value;
@@ -224,15 +201,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (bizText) {
                 bizText.textContent = label;
-                bizText.classList.remove('text-gray-400', 'font-normal');
-                bizText.classList.add('text-gray-900', 'font-semibold');
+                bizText.classList.remove("text-gray-400", "font-normal");
+                bizText.classList.add("text-gray-900", "font-semibold");
             }
 
-            bizIcon?.classList.remove('hidden');
+            bizIcon?.classList.remove("hidden");
             if (bizHiddenInput) bizHiddenInput.value = val;
 
-            bizTrigger?.classList.remove('border-red-500');
-            bizError?.classList.add('hidden');
+            bizTrigger?.classList.remove("border-red-500");
+            bizError?.classList.add("hidden");
 
             toggleBusinessTypeDropdown(false);
         });
@@ -269,7 +246,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bizSearch?.addEventListener("input", (e) => {
         const query = e.target.value.toLowerCase().trim();
-        renderBusinessTypes(businessTypes.filter(b => b.label.toLowerCase().includes(query)));
+        renderBusinessTypes(
+            businessTypes.filter((b) => b.label.toLowerCase().includes(query)),
+        );
     });
 
     // ==========================================
@@ -288,9 +267,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderRegionCountries(list) {
         if (!regionCountryList) return;
-        regionCountryList.innerHTML = list.length === 0
-            ? `<li class="px-3 py-2 text-center text-xs text-gray-400">No countries found</li>`
-            : list.map(item => `
+        regionCountryList.innerHTML =
+            list.length === 0
+                ? `<li class="px-3 py-2 text-center text-xs text-gray-400">No countries found</li>`
+                : list
+                      .map(
+                          (item) => `
                 <li>
                     <button type="button" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left hover:bg-emerald-50/60 transition group cursor-pointer"
                             data-code="${item.code.toUpperCase()}" data-name="${item.name}" data-img="https://flagcdn.com/w40/${item.code}.png">
@@ -303,12 +285,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span class="text-[11px] font-bold text-gray-400 group-hover:text-[#00875A]">${item.code.toUpperCase()}</span>
                     </button>
                 </li>
-            `).join('');
+            `,
+                      )
+                      .join("");
     }
 
     if (regionCountryList) {
-        regionCountryList.addEventListener('click', (e) => {
-            const btn = e.target.closest('button');
+        regionCountryList.addEventListener("click", (e) => {
+            const btn = e.target.closest("button");
             if (!btn) return;
 
             const code = btn.dataset.code;
@@ -366,25 +350,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     regionSearch?.addEventListener("input", (e) => {
         const query = e.target.value.toLowerCase().trim();
-        renderRegionCountries(countries.filter(c => c.name.toLowerCase().includes(query) || c.code.toLowerCase().includes(query)));
+        renderRegionCountries(
+            countries.filter(
+                (c) =>
+                    c.name.toLowerCase().includes(query) ||
+                    c.code.toLowerCase().includes(query),
+            ),
+        );
     });
 
     // Close any menu on outside click
     document.addEventListener("click", (e) => {
-        if (phoneMenu && !phoneMenu.contains(e.target) && !phoneTrigger?.contains(e.target)) togglePhoneDropdown(false);
-        if (regionMenu && !regionMenu.contains(e.target) && !regionTrigger?.contains(e.target)) toggleRegionDropdown(false);
-        if (bizMenu && !bizMenu.contains(e.target) && !bizTrigger?.contains(e.target)) toggleBusinessTypeDropdown(false);
+        if (
+            phoneMenu &&
+            !phoneMenu.contains(e.target) &&
+            !phoneTrigger?.contains(e.target)
+        )
+            togglePhoneDropdown(false);
+        if (
+            regionMenu &&
+            !regionMenu.contains(e.target) &&
+            !regionTrigger?.contains(e.target)
+        )
+            toggleRegionDropdown(false);
+        if (
+            bizMenu &&
+            !bizMenu.contains(e.target) &&
+            !bizTrigger?.contains(e.target)
+        )
+            toggleBusinessTypeDropdown(false);
     });
 
     // ==========================================
-    // 5. PASSWORD & DROPZONE PREVIEWS
+    // 5. DROPZONE PREVIEWS
     // ==========================================
-    document.querySelectorAll(".toggle-password-btn").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-            const input = e.currentTarget.parentElement.querySelector("input");
-            if (input) input.type = input.type === "password" ? "text" : "password";
-        });
-    });
 
     const descTextarea = document.getElementById("store_description");
     const charCount = document.getElementById("charCount");
@@ -404,7 +403,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!files || !files[0]) return;
             const file = files[0];
 
-            if (file.type.startsWith("image/") && previewImg && previewContainer) {
+            if (
+                file.type.startsWith("image/") &&
+                previewImg &&
+                previewContainer
+            ) {
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     previewImg.src = e.target.result;
@@ -415,7 +418,10 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 const docLabel = document.getElementById("docsFileName");
                 if (docLabel) {
-                    docLabel.textContent = file.name.length > 25 ? file.name.substring(0, 22) + "..." : file.name;
+                    docLabel.textContent =
+                        file.name.length > 25
+                            ? file.name.substring(0, 22) + "..."
+                            : file.name;
                     docLabel.classList.add("text-[#00875A]", "font-bold");
                 }
             }
@@ -423,15 +429,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         input?.addEventListener("change", (e) => handleFiles(e.target.files));
 
-        ["dragenter", "dragover"].forEach(evt => dropzone.addEventListener(evt, (e) => {
-            e.preventDefault();
-            dropzone.classList.add("border-[#00875A]", "bg-emerald-50/20");
-        }));
+        ["dragenter", "dragover"].forEach((evt) =>
+            dropzone.addEventListener(evt, (e) => {
+                e.preventDefault();
+                dropzone.classList.add("border-[#00875A]", "bg-emerald-50/20");
+            }),
+        );
 
-        ["dragleave", "drop"].forEach(evt => dropzone.addEventListener(evt, (e) => {
-            e.preventDefault();
-            dropzone.classList.remove("border-[#00875A]", "bg-emerald-50/20");
-        }));
+        ["dragleave", "drop"].forEach((evt) =>
+            dropzone.addEventListener(evt, (e) => {
+                e.preventDefault();
+                dropzone.classList.remove(
+                    "border-[#00875A]",
+                    "bg-emerald-50/20",
+                );
+            }),
+        );
 
         dropzone.addEventListener("drop", (e) => {
             if (input && e.dataTransfer.files.length) {
@@ -447,7 +460,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function showError(element, message) {
         if (!element) return;
         element.classList.add("border-red-500");
-        const err = element.closest("div")?.parentElement?.querySelector(".error-text") ||
+        const err =
+            element
+                .closest("div")
+                ?.parentElement?.querySelector(".error-text") ||
             element.closest("div")?.querySelector(".error-text");
         if (err) {
             err.textContent = message;
@@ -458,7 +474,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function clearError(element) {
         if (!element) return;
         element.classList.remove("border-red-500");
-        const err = element.closest("div")?.parentElement?.querySelector(".error-text") ||
+        const err =
+            element
+                .closest("div")
+                ?.parentElement?.querySelector(".error-text") ||
             element.closest("div")?.querySelector(".error-text");
         if (err) err.classList.add("hidden");
     }
@@ -480,14 +499,23 @@ document.addEventListener("DOMContentLoaded", () => {
         let isValid = true;
 
         if (step === 1) {
-            isValid = checkField("legal_name", "Please enter your legal or business name.") && isValid;
+            isValid =
+                checkField(
+                    "legal_name",
+                    "Please enter your legal or business name.",
+                ) && isValid;
 
             const pass = document.getElementById("password");
-            const passConfirm = document.getElementById("password_confirmation");
+            const passConfirm = document.getElementById(
+                "password_confirmation",
+            );
 
             if (pass) {
                 if (pass.value.length < 8) {
-                    showError(pass, "Password must be at least 8 characters long.");
+                    showError(
+                        pass,
+                        "Password must be at least 8 characters long.",
+                    );
                     isValid = false;
                 } else {
                     clearError(pass);
@@ -536,11 +564,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 countryError?.classList.add("hidden");
             }
 
-            isValid = checkField("business_address", "Business address is required.") && isValid;
-        }
-        else if (step === 2) {
-            isValid = checkField("store_name", "Store name is required.") && isValid;
-            isValid = checkField("store_description", "Please provide a store description.") && isValid;
+            isValid =
+                checkField(
+                    "business_address",
+                    "Business address is required.",
+                ) && isValid;
+        } else if (step === 2) {
+            isValid =
+                checkField("store_name", "Store name is required.") && isValid;
+            isValid =
+                checkField(
+                    "store_description",
+                    "Please provide a store description.",
+                ) && isValid;
 
             const logo = document.getElementById("store_logo");
             const logoError = document.getElementById("logoError");
@@ -570,15 +606,21 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        document.querySelectorAll(".step-pane").forEach(el => el.classList.add("hidden"));
-        document.getElementById(`step${target}Container`)?.classList.remove("hidden");
+        document
+            .querySelectorAll(".step-pane")
+            .forEach((el) => el.classList.add("hidden"));
+        document
+            .getElementById(`step${target}Container`)
+            ?.classList.remove("hidden");
 
         if (heroImage) {
             const targetImg = heroImage.getAttribute(`data-step${target}-img`);
             if (targetImg) {
                 heroImage.style.opacity = "0.2";
                 heroImage.src = targetImg;
-                heroImage.onload = () => { heroImage.style.opacity = "1"; };
+                heroImage.onload = () => {
+                    heroImage.style.opacity = "1";
+                };
             }
         }
 
@@ -589,7 +631,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-next-step]").forEach((btn) => {
         btn.addEventListener("click", () => {
             const targetStep = currentStep + 1;
-            if (targetStep <= 3 && validateStep(currentStep)) switchStep(targetStep);
+            if (targetStep <= 3 && validateStep(currentStep))
+                switchStep(targetStep);
         });
     });
 
@@ -600,24 +643,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Step 3 Submission Shield
-    document.getElementById("submitVendorBtn")?.addEventListener("click", () => {
-        if (!validateStep(1)) { switchStep(1); return; }
-        if (!validateStep(2)) { switchStep(2); return; }
-
-        const idFront = document.getElementById("id_front");
-        const idBack = document.getElementById("id_back");
-        const idSelfie = document.getElementById("id_selfie");
-        const idError = document.getElementById("idError");
-
-        if (!idFront?.files?.length || !idBack?.files?.length || !idSelfie?.files?.length) {
-            if (idError) {
-                idError.textContent = "Please upload all 3 ID verification photos (Front, Back, and Selfie).";
-                idError.classList.remove("hidden");
+    document
+        .getElementById("submitVendorBtn")
+        ?.addEventListener("click", () => {
+            if (!validateStep(1)) {
+                switchStep(1);
+                return;
             }
-            return;
-        }
+            if (!validateStep(2)) {
+                switchStep(2);
+                return;
+            }
 
-        idError?.classList.add("hidden");
-        form?.submit();
-    });
+            const idFront = document.getElementById("id_front");
+            const idBack = document.getElementById("id_back");
+            const idSelfie = document.getElementById("id_selfie");
+            const idError = document.getElementById("idError");
+
+            if (
+                !idFront?.files?.length ||
+                !idBack?.files?.length ||
+                !idSelfie?.files?.length
+            ) {
+                if (idError) {
+                    idError.textContent =
+                        "Please upload all 3 ID verification photos (Front, Back, and Selfie).";
+                    idError.classList.remove("hidden");
+                }
+                return;
+            }
+
+            idError?.classList.add("hidden");
+            form?.submit();
+        });
 });

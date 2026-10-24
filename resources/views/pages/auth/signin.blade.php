@@ -26,9 +26,9 @@
                     </svg>
                 </x-slot:icon>
                 <x-slot:toggle-btn>
-                    <button type="button" id="togglePassword"
-                        class="cursor-pointer absolute right-3.5 text-gray-400 hover:text-gray-600 focus:outline-none">
-                        <svg id="eyeIcon1" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
+                    <button type="button"
+                        class="toggle-password-btn cursor-pointer absolute right-3.5 text-gray-400 hover:text-gray-600 focus:outline-none">
+                        <svg class="eye-icon w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="1.8"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -68,5 +68,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/pages/auth/signup.js')
+    @vite('resources/js/pages/auth/toggle-password.js')
 @endpush

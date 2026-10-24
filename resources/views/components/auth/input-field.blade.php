@@ -14,7 +14,6 @@
     @isset($toggleBtn)
         {{ $toggleBtn }}
     @endisset
-
 </div>
 @error($name)
     <p class="text-xs text-red-500 font-medium">{{ $message }}</p>

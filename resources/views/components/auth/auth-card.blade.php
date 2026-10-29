@@ -1,4 +1,8 @@
-@props(['image', 'title', 'subtitle' => null, 'leftWidth' => '60%', 'rightWidth' => '40%'])
+@props(['image', 'title', 'subtitle' => null, 'leftWidth' => '60%', 'rightWidth' => '40%', 'email' => null])
+
+@php
+    $maskedEmail = 'j***@gmail.com';
+@endphp
 
 <main class="w-full container mx-auto flex-1 flex items-center justify-center sm:px-10 md:pt-4 md:pb-8">
     <div
@@ -16,6 +20,23 @@
                 </h2>
                 @if ($subtitle)
                     <p class="text-xs sm:text-sm text-gray-500 mt-1 font-medium">{{ $subtitle }}</p>
+                @endif
+                @if ($email)
+                    <div class="flex flex-wrap items-center gap-3 mt-2.5">
+                        <span class="text-xl sm:text-2xl font-bold text-[#0B1527] tracking-tight">
+                            {{ $maskedEmail ?? 'j***@gmail.com' }}
+                        </span>
+
+                        <a href="{{ route('signup') }}"
+                            class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#00875A] hover:text-[#00744D] hover:underline transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
+                            <span>Change email</span>
+                        </a>
+                    </div>
                 @endif
             </div>
 

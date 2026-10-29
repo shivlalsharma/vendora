@@ -27,29 +27,35 @@ Route::middleware('auth')->controller(AuthController::class)->group(function (){
     Route::post('/logout', 'logout')->name('logout');
 });
 
-Route::view('/vendor/signup', 'vendor.pages.auth.signup')->name('vendor.signup');
+Route::view('/vendor/signup', 'vendor.pages.auth.signup')->name('vendor.signup')->middleware('guest');
 
 // Fake
-Route::get('/fake', function () {
-    return view('fake.index');
-})->name('fake.index');
+Route::prefix('fake')->name('fake.')->group(function (){
+    Route::get('/', function () {
+        return view('fake.index');
+    })->name('index');
 
-Route::get('/fake/signin', function () {
-    return view('fake.signin');
-})->name('fake.signup');
+    Route::get('/signin', function () {
+        return view('fake.signin');
+    })->name('signup');
 
-Route::get('/fake/forgot-password', function () {
-    return view('fake.forgot-password');
-})->name('fake.password.forgot');
+    Route::get('/forgot-password', function () {
+        return view('fake.forgot-password');
+    })->name('password.forgot');
 
-Route::get('/fake/verify-otp', function () {
-    return view('fake.verify-otp');
-})->name('fake.verifyOtp');
+    Route::get('/verify-otp', function () {
+        return view('fake.verify-otp');
+    })->name('verifyOtp');
 
-Route::get('/fake/reset-password', function () {
-    return view('fake.reset-password');
-})->name('fake.password.reset');
+    Route::get('/reset-password', function () {
+        return view('fake.reset-password');
+    })->name('password.reset');
 
-Route::get('/fake/signup', function () {
-    return view('fake.signup');
-})->name('fake.signup');
+    Route::get('/signup', function () {
+        return view('fake.signup');
+    })->name('signup');
+
+    Route::get('/verify-email', function () {
+        return view('fake.verify-email');
+    })->name('fake.verifyEmail');
+});

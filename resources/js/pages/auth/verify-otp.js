@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Countdown Timer (04:52)
-    let duration = 5 * 60;
+    let duration = 59;
     const timerDisplay = document.getElementById("timer");
 
     const countdownInterval = setInterval(() => {
